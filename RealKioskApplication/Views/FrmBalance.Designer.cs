@@ -51,6 +51,7 @@
             this.BtnPagar.TabIndex = 25;
             this.BtnPagar.Text = "Pagar >";
             this.BtnPagar.UseVisualStyleBackColor = false;
+            this.BtnPagar.Click += new System.EventHandler(this.BtnPagar_Click);
             // 
             // BtnVolver
             // 
@@ -65,6 +66,7 @@
             this.BtnVolver.TabIndex = 24;
             this.BtnVolver.Text = "< Volver";
             this.BtnVolver.UseVisualStyleBackColor = false;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // LblCuenta
             // 
@@ -108,7 +110,6 @@
             this.TxtCuenta.Name = "TxtCuenta";
             this.TxtCuenta.Size = new System.Drawing.Size(294, 22);
             this.TxtCuenta.TabIndex = 29;
-            this.TxtCuenta.Text = "1234567890";
             this.TxtCuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtUsuario
@@ -120,7 +121,6 @@
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(294, 22);
             this.TxtUsuario.TabIndex = 30;
-            this.TxtUsuario.Text = "John Doe";
             this.TxtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtDeuda
@@ -132,7 +132,6 @@
             this.TxtDeuda.Name = "TxtDeuda";
             this.TxtDeuda.Size = new System.Drawing.Size(294, 22);
             this.TxtDeuda.TabIndex = 31;
-            this.TxtDeuda.Text = "$123.45";
             this.TxtDeuda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmBalance
@@ -153,6 +152,8 @@
             this.Name = "FrmBalance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Balance";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBalance_FormClosed);
+            this.Load += new System.EventHandler(this.FrmBalance_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

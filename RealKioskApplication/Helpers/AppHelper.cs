@@ -20,5 +20,17 @@ namespace RealKioskApplication.Helpers
             return Application.OpenForms.OfType<Form>()
                .Where(pre => pre.Name == "FrmBalance").SingleOrDefault<Form>();
         }
+
+        public static Form GetAccountForm()
+        {
+            return Application.OpenForms.OfType<Form>()
+               .Where(pre => pre.Name == "FrmAccount").SingleOrDefault<Form>();
+        }
+
+        public static Form GetPaymentForm()
+        {
+            return Application.OpenForms.OfType<Form>()
+               .Where(pre => pre.Name == "FrmPayment").SingleOrDefault<Form>();
+        }
     }
 }

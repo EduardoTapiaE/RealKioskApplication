@@ -1,4 +1,4 @@
-﻿using LyFService.Models;
+﻿using RealKioskApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,12 @@ namespace RealKioskApplication.Services
 {
     public class AccountService : IAccountService
     {
-        private AccountBalanceModel _accountBalance;
+        private static AccountBalanceModel _accountBalance;
+
+        public AccountBalanceModel GetAccountBlance()
+        {
+            return _accountBalance;
+        }
 
         public void SetAccountBlance(AccountBalanceModel account_balance)
         {

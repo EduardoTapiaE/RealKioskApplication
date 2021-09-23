@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LyFService.Services;
 using RealKioskApplication.Services;
+using RealKioskApplication.Models;
 
 namespace RealKioskApplication.Views
 {
@@ -135,7 +136,13 @@ namespace RealKioskApplication.Views
                     if (account_balance.message == null)
                     {
                         IAccountService account_service = new AccountService();
-                        account_service.SetAccountBlance(account_balance);
+                        account_service.SetAccountBlance(new AccountBalanceModel()
+                        {
+                            Account_number = account_number,
+                            User = account_balance.user,
+                            Debt = account_balance.debt
+                        });
+
                         FrmBalance frmBalance = new FrmBalance();
                         frmBalance.Show();
                         Close();
