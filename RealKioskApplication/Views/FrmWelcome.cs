@@ -16,5 +16,23 @@ namespace RealKioskApplication.Views
         {
             InitializeComponent();
         }
+
+        private void PnlWelcome_Click(object sender, EventArgs e)
+        {
+            OpenAccountView();
+        }
+
+        private void LblWelcome_Click(object sender, EventArgs e)
+        {
+            OpenAccountView();
+        }
+
+        public void OpenAccountView()
+        {
+            FrmAccount frmAccount = new FrmAccount();
+            frmAccount.Show();
+            Hide();
+        }
+
     }
 }
