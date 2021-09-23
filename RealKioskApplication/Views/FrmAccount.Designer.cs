@@ -67,6 +67,7 @@
             this.TxtNoCuenta.Name = "TxtNoCuenta";
             this.TxtNoCuenta.Size = new System.Drawing.Size(280, 24);
             this.TxtNoCuenta.TabIndex = 2;
+            this.TxtNoCuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnUno
             // 
@@ -81,6 +82,7 @@
             this.BtnUno.TabIndex = 12;
             this.BtnUno.Text = "1";
             this.BtnUno.UseVisualStyleBackColor = false;
+            this.BtnUno.Click += new System.EventHandler(this.BtnUno_Click);
             // 
             // BtnDos
             // 
@@ -95,6 +97,7 @@
             this.BtnDos.TabIndex = 13;
             this.BtnDos.Text = "2";
             this.BtnDos.UseVisualStyleBackColor = false;
+            this.BtnDos.Click += new System.EventHandler(this.BtnDos_Click);
             // 
             // BtnTres
             // 
@@ -109,6 +112,7 @@
             this.BtnTres.TabIndex = 14;
             this.BtnTres.Text = "3";
             this.BtnTres.UseVisualStyleBackColor = false;
+            this.BtnTres.Click += new System.EventHandler(this.BtnTres_Click);
             // 
             // BtnSeis
             // 
@@ -123,6 +127,7 @@
             this.BtnSeis.TabIndex = 17;
             this.BtnSeis.Text = "6";
             this.BtnSeis.UseVisualStyleBackColor = false;
+            this.BtnSeis.Click += new System.EventHandler(this.BtnSeis_Click);
             // 
             // BtnCinco
             // 
@@ -137,6 +142,7 @@
             this.BtnCinco.TabIndex = 16;
             this.BtnCinco.Text = "5";
             this.BtnCinco.UseVisualStyleBackColor = false;
+            this.BtnCinco.Click += new System.EventHandler(this.BtnCinco_Click);
             // 
             // BtnCuatro
             // 
@@ -151,6 +157,7 @@
             this.BtnCuatro.TabIndex = 15;
             this.BtnCuatro.Text = "4";
             this.BtnCuatro.UseVisualStyleBackColor = false;
+            this.BtnCuatro.Click += new System.EventHandler(this.BtnCuatro_Click);
             // 
             // BtnNueve
             // 
@@ -165,6 +172,7 @@
             this.BtnNueve.TabIndex = 20;
             this.BtnNueve.Text = "9";
             this.BtnNueve.UseVisualStyleBackColor = false;
+            this.BtnNueve.Click += new System.EventHandler(this.BtnNueve_Click);
             // 
             // BtnOcho
             // 
@@ -179,6 +187,7 @@
             this.BtnOcho.TabIndex = 19;
             this.BtnOcho.Text = "8";
             this.BtnOcho.UseVisualStyleBackColor = false;
+            this.BtnOcho.Click += new System.EventHandler(this.BtnOcho_Click);
             // 
             // BtnSiete
             // 
@@ -193,6 +202,7 @@
             this.BtnSiete.TabIndex = 18;
             this.BtnSiete.Text = "7";
             this.BtnSiete.UseVisualStyleBackColor = false;
+            this.BtnSiete.Click += new System.EventHandler(this.BtnSiete_Click);
             // 
             // BtnCero
             // 
@@ -207,6 +217,7 @@
             this.BtnCero.TabIndex = 21;
             this.BtnCero.Text = "0";
             this.BtnCero.UseVisualStyleBackColor = false;
+            this.BtnCero.Click += new System.EventHandler(this.BtnCero_Click);
             // 
             // BtnCancelar
             // 
@@ -221,6 +232,7 @@
             this.BtnCancelar.TabIndex = 22;
             this.BtnCancelar.Text = "< Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnContinuar
             // 
@@ -235,6 +247,7 @@
             this.BtnContinuar.TabIndex = 23;
             this.BtnContinuar.Text = "Continuar >";
             this.BtnContinuar.UseVisualStyleBackColor = false;
+            this.BtnContinuar.Click += new System.EventHandler(this.BtnContinuar_Click);
             // 
             // BtnBorrar
             // 
@@ -249,6 +262,7 @@
             this.BtnBorrar.TabIndex = 24;
             this.BtnBorrar.Text = "<";
             this.BtnBorrar.UseVisualStyleBackColor = false;
+            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // FrmAccount
             // 
@@ -275,6 +289,7 @@
             this.Name = "FrmAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAccount_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
