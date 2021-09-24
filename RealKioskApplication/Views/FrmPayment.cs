@@ -2,6 +2,7 @@
 using LyFService.Services;
 using RealKioskApplication.Helpers;
 using RealKioskApplication.Models;
+using RealKioskApplication.Models.Database;
 using RealKioskApplication.Services;
 using System;
 using System.Collections.Generic;
@@ -148,6 +149,16 @@ namespace RealKioskApplication.Views
 
             if (response.debt != null)
             {
+                var db_response = DbContext.Instantiate.InsertPayment(new Payment()
+                {
+                    account = _accountBalance.Account_number,
+                    Costumer = response.user,
+                    Debt = double.Parse(response.debt),
+                    Paid = _depositado,
+                    Change = _cambio,
+                    Date = DateTime.UtcNow
+
+                });
                 succesfull = true;
             }
 
