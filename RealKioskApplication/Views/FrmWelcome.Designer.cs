@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWelcome));
             this.PnlWelcome = new System.Windows.Forms.Panel();
             this.LblWelcome = new System.Windows.Forms.Label();
             this.PnlWelcome.SuspendLayout();
@@ -62,6 +63,7 @@
             this.ClientSize = new System.Drawing.Size(705, 512);
             this.Controls.Add(this.PnlWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmWelcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

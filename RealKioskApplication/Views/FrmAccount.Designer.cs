@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAccount));
             this.LblNumeroCuenta = new System.Windows.Forms.Label();
             this.TxtNoCuenta = new System.Windows.Forms.TextBox();
             this.BtnUno = new System.Windows.Forms.Button();
@@ -285,6 +286,7 @@
             this.Controls.Add(this.TxtNoCuenta);
             this.Controls.Add(this.LblNumeroCuenta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

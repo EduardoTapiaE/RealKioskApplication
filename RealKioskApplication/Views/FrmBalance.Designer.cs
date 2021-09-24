@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBalance));
             this.BtnPagar = new System.Windows.Forms.Button();
             this.BtnVolver = new System.Windows.Forms.Button();
             this.LblCuenta = new System.Windows.Forms.Label();
@@ -151,6 +152,7 @@
             this.Controls.Add(this.BtnPagar);
             this.Controls.Add(this.BtnVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmBalance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
