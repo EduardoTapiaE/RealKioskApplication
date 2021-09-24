@@ -141,25 +141,32 @@ namespace RealKioskApplication.Views
         {
             bool succesfull = false;
             IKioskService kiosk_service = new KioskService();
-            var response = await kiosk_service.PostPayment(new PaymentRequest()
+            try
             {
-                account = _accountBalance.Account_number.ToString(),
-                paid = depositado
-            });
-
-            if (response.debt != null)
-            {
-                var db_response = DbContext.Instantiate.InsertPayment(new Payment()
+                var response = await kiosk_service.PostPayment(new PaymentRequest()
                 {
-                    account = _accountBalance.Account_number,
-                    Costumer = response.user,
-                    Debt = double.Parse(response.debt),
-                    Paid = _depositado,
-                    Change = _cambio,
-                    Date = DateTime.UtcNow
-
+                    account = _accountBalance.Account_number.ToString(),
+                    paid = depositado
                 });
-                succesfull = true;
+
+                if (response.debt != null)
+                {
+                    var db_response = DbContext.Instantiate.InsertPayment(new Payment()
+                    {
+                        account = _accountBalance.Account_number,
+                        Costumer = response.user,
+                        Debt = double.Parse(response.debt),
+                        Paid = _depositado,
+                        Change = _cambio,
+                        Date = DateTime.UtcNow
+
+                    });
+                    succesfull = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un error al guardar el pago. Detalles: {ex.Message}");
             }
 
             return succesfull;
