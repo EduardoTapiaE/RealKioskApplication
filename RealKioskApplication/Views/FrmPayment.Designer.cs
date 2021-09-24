@@ -46,18 +46,20 @@
             this.BtnDos = new System.Windows.Forms.Button();
             this.BtnUno = new System.Windows.Forms.Button();
             this.BtnCincoCentavos = new System.Windows.Forms.Button();
+            this.TxtCambio = new System.Windows.Forms.TextBox();
+            this.LblCambio = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtDeuda
             // 
             this.TxtDeuda.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtDeuda.Enabled = false;
             this.TxtDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDeuda.ForeColor = System.Drawing.Color.MediumBlue;
-            this.TxtDeuda.Location = new System.Drawing.Point(20, 102);
+            this.TxtDeuda.Location = new System.Drawing.Point(17, 102);
             this.TxtDeuda.Name = "TxtDeuda";
-            this.TxtDeuda.Size = new System.Drawing.Size(189, 22);
+            this.TxtDeuda.Size = new System.Drawing.Size(146, 22);
             this.TxtDeuda.TabIndex = 31;
-            this.TxtDeuda.Text = "$123.45";
             this.TxtDeuda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LblDeuda
@@ -65,7 +67,7 @@
             this.LblDeuda.AutoSize = true;
             this.LblDeuda.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDeuda.ForeColor = System.Drawing.Color.Black;
-            this.LblDeuda.Location = new System.Drawing.Point(71, 55);
+            this.LblDeuda.Location = new System.Drawing.Point(46, 55);
             this.LblDeuda.Name = "LblDeuda";
             this.LblDeuda.Size = new System.Drawing.Size(95, 30);
             this.LblDeuda.TabIndex = 30;
@@ -74,13 +76,13 @@
             // TxtDepositado
             // 
             this.TxtDepositado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtDepositado.Enabled = false;
             this.TxtDepositado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDepositado.ForeColor = System.Drawing.Color.MediumBlue;
-            this.TxtDepositado.Location = new System.Drawing.Point(247, 102);
+            this.TxtDepositado.Location = new System.Drawing.Point(179, 102);
             this.TxtDepositado.Name = "TxtDepositado";
-            this.TxtDepositado.Size = new System.Drawing.Size(189, 22);
+            this.TxtDepositado.Size = new System.Drawing.Size(152, 22);
             this.TxtDepositado.TabIndex = 33;
-            this.TxtDepositado.Text = "$123.45";
             this.TxtDepositado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LblDepositado
@@ -88,7 +90,7 @@
             this.LblDepositado.AutoSize = true;
             this.LblDepositado.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDepositado.ForeColor = System.Drawing.Color.Black;
-            this.LblDepositado.Location = new System.Drawing.Point(263, 55);
+            this.LblDepositado.Location = new System.Drawing.Point(176, 55);
             this.LblDepositado.Name = "LblDepositado";
             this.LblDepositado.Size = new System.Drawing.Size(157, 30);
             this.LblDepositado.TabIndex = 32;
@@ -97,13 +99,13 @@
             // TxtRestante
             // 
             this.TxtRestante.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtRestante.Enabled = false;
             this.TxtRestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtRestante.ForeColor = System.Drawing.Color.MediumBlue;
-            this.TxtRestante.Location = new System.Drawing.Point(465, 102);
+            this.TxtRestante.Location = new System.Drawing.Point(337, 102);
             this.TxtRestante.Name = "TxtRestante";
-            this.TxtRestante.Size = new System.Drawing.Size(189, 22);
+            this.TxtRestante.Size = new System.Drawing.Size(157, 22);
             this.TxtRestante.TabIndex = 35;
-            this.TxtRestante.Text = "$123.45";
             this.TxtRestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LblRestante
@@ -111,7 +113,7 @@
             this.LblRestante.AutoSize = true;
             this.LblRestante.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRestante.ForeColor = System.Drawing.Color.Black;
-            this.LblRestante.Location = new System.Drawing.Point(496, 55);
+            this.LblRestante.Location = new System.Drawing.Point(356, 55);
             this.LblRestante.Name = "LblRestante";
             this.LblRestante.Size = new System.Drawing.Size(121, 30);
             this.LblRestante.TabIndex = 34;
@@ -130,6 +132,7 @@
             this.BtnAbonar.TabIndex = 37;
             this.BtnAbonar.Text = "Abonar >";
             this.BtnAbonar.UseVisualStyleBackColor = false;
+            this.BtnAbonar.Click += new System.EventHandler(this.BtnAbonar_Click);
             // 
             // BtnCancelar
             // 
@@ -144,6 +147,7 @@
             this.BtnCancelar.TabIndex = 36;
             this.BtnCancelar.Text = "< Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnQuinientos
             // 
@@ -158,6 +162,7 @@
             this.BtnQuinientos.TabIndex = 38;
             this.BtnQuinientos.Text = "$500";
             this.BtnQuinientos.UseVisualStyleBackColor = false;
+            this.BtnQuinientos.Click += new System.EventHandler(this.BtnQuinientos_Click);
             // 
             // BtnDocientos
             // 
@@ -172,6 +177,7 @@
             this.BtnDocientos.TabIndex = 39;
             this.BtnDocientos.Text = "$200";
             this.BtnDocientos.UseVisualStyleBackColor = false;
+            this.BtnDocientos.Click += new System.EventHandler(this.BtnDocientos_Click);
             // 
             // BtnCien
             // 
@@ -186,6 +192,7 @@
             this.BtnCien.TabIndex = 40;
             this.BtnCien.Text = "$100";
             this.BtnCien.UseVisualStyleBackColor = false;
+            this.BtnCien.Click += new System.EventHandler(this.BtnCien_Click);
             // 
             // BtnCincuenta
             // 
@@ -200,6 +207,7 @@
             this.BtnCincuenta.TabIndex = 41;
             this.BtnCincuenta.Text = "$50";
             this.BtnCincuenta.UseVisualStyleBackColor = false;
+            this.BtnCincuenta.Click += new System.EventHandler(this.BtnCincuenta_Click);
             // 
             // BtnVeinte
             // 
@@ -214,6 +222,7 @@
             this.BtnVeinte.TabIndex = 42;
             this.BtnVeinte.Text = "$20";
             this.BtnVeinte.UseVisualStyleBackColor = false;
+            this.BtnVeinte.Click += new System.EventHandler(this.BtnVeinte_Click);
             // 
             // BtnDiez
             // 
@@ -228,6 +237,7 @@
             this.BtnDiez.TabIndex = 43;
             this.BtnDiez.Text = "$10";
             this.BtnDiez.UseVisualStyleBackColor = false;
+            this.BtnDiez.Click += new System.EventHandler(this.BtnDiez_Click);
             // 
             // BtnCinco
             // 
@@ -242,6 +252,7 @@
             this.BtnCinco.TabIndex = 44;
             this.BtnCinco.Text = "$5";
             this.BtnCinco.UseVisualStyleBackColor = false;
+            this.BtnCinco.Click += new System.EventHandler(this.BtnCinco_Click);
             // 
             // BtnDos
             // 
@@ -256,6 +267,7 @@
             this.BtnDos.TabIndex = 45;
             this.BtnDos.Text = "$2";
             this.BtnDos.UseVisualStyleBackColor = false;
+            this.BtnDos.Click += new System.EventHandler(this.BtnDos_Click);
             // 
             // BtnUno
             // 
@@ -270,6 +282,7 @@
             this.BtnUno.TabIndex = 46;
             this.BtnUno.Text = "$1";
             this.BtnUno.UseVisualStyleBackColor = false;
+            this.BtnUno.Click += new System.EventHandler(this.BtnUno_Click);
             // 
             // BtnCincoCentavos
             // 
@@ -284,12 +297,38 @@
             this.BtnCincoCentavos.TabIndex = 47;
             this.BtnCincoCentavos.Text = "¢5";
             this.BtnCincoCentavos.UseVisualStyleBackColor = false;
+            this.BtnCincoCentavos.Click += new System.EventHandler(this.BtnCincoCentavos_Click);
+            // 
+            // TxtCambio
+            // 
+            this.TxtCambio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtCambio.Enabled = false;
+            this.TxtCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCambio.ForeColor = System.Drawing.Color.MediumBlue;
+            this.TxtCambio.Location = new System.Drawing.Point(500, 102);
+            this.TxtCambio.Name = "TxtCambio";
+            this.TxtCambio.Size = new System.Drawing.Size(157, 22);
+            this.TxtCambio.TabIndex = 49;
+            this.TxtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LblCambio
+            // 
+            this.LblCambio.AutoSize = true;
+            this.LblCambio.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCambio.ForeColor = System.Drawing.Color.Black;
+            this.LblCambio.Location = new System.Drawing.Point(515, 55);
+            this.LblCambio.Name = "LblCambio";
+            this.LblCambio.Size = new System.Drawing.Size(112, 30);
+            this.LblCambio.TabIndex = 48;
+            this.LblCambio.Text = "Cambio";
             // 
             // FrmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 512);
+            this.Controls.Add(this.TxtCambio);
+            this.Controls.Add(this.LblCambio);
             this.Controls.Add(this.BtnCincoCentavos);
             this.Controls.Add(this.BtnUno);
             this.Controls.Add(this.BtnDos);
@@ -313,6 +352,9 @@
             this.Name = "FrmPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPayment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPayment_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPayment_FormClosed);
+            this.Load += new System.EventHandler(this.FrmPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +380,7 @@
         private System.Windows.Forms.Button BtnDos;
         private System.Windows.Forms.Button BtnUno;
         private System.Windows.Forms.Button BtnCincoCentavos;
+        private System.Windows.Forms.TextBox TxtCambio;
+        private System.Windows.Forms.Label LblCambio;
     }
 }

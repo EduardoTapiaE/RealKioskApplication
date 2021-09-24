@@ -104,6 +104,7 @@
             // TxtCuenta
             // 
             this.TxtCuenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtCuenta.Enabled = false;
             this.TxtCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCuenta.ForeColor = System.Drawing.Color.MediumBlue;
             this.TxtCuenta.Location = new System.Drawing.Point(211, 92);
@@ -115,6 +116,7 @@
             // TxtUsuario
             // 
             this.TxtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtUsuario.Enabled = false;
             this.TxtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUsuario.ForeColor = System.Drawing.Color.MediumBlue;
             this.TxtUsuario.Location = new System.Drawing.Point(211, 195);
@@ -126,6 +128,7 @@
             // TxtDeuda
             // 
             this.TxtDeuda.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtDeuda.Enabled = false;
             this.TxtDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDeuda.ForeColor = System.Drawing.Color.MediumBlue;
             this.TxtDeuda.Location = new System.Drawing.Point(211, 300);
