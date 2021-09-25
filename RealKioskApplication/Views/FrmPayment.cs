@@ -1,4 +1,7 @@
-﻿using LyFService.Models.Request;
+﻿using DeviceLibrary;
+using DeviceLibrary.Models;
+using DeviceLibrary.Models.Enums;
+using LyFService.Models.Request;
 using LyFService.Services;
 using RealKioskApplication.Helpers;
 using RealKioskApplication.Models;
@@ -25,12 +28,41 @@ namespace RealKioskApplication.Views
 
         public FrmPayment()
         {
+            DeviceSimulator.instantiate.Open();
+            DeviceSimulator.instantiate.AcceptedDocument += Instantiate_AcceptedDocument;
             InitializeComponent();
+        }
+
+        private void Instantiate_AcceptedDocument(Document document)
+        {
+            AddPayment(double.Parse(document.Value.ToString()));
+        }
+
+        private void ValidateAcceptCoinsOrBills()
+        {
+            DeviceSimulator.instantiate.Enable();
+            if (_accountBalance.Debt <= 0)
+            {
+                DeviceSimulator.instantiate.Disable();
+            }
+        }
+
+        private void InsertCoinsOrBills(decimal value, DocumentType type)
+        {
+            var device_status = DeviceSimulator.instantiate.Status;
+
+            if (device_status == DeviceStatus.Enabled)
+            {
+                Document document = new Document(value, type, 1);
+                DeviceSimulator.instantiate.SimulateInsertion(document);
+            }
         }
 
         private async void AddPayment(double amount)
         {
-            if(_accountBalance.Debt > 0)
+            var device_status = DeviceSimulator.instantiate.Status;
+
+            if(device_status == DeviceStatus.Enabled)
             {
                 _depositado += Math.Round(amount, 2);
 
@@ -47,6 +79,9 @@ namespace RealKioskApplication.Views
                     {
                         _depositado = 0;
                         MessageBox.Show($"Su cambio es de ${_cambio}");
+                        DeviceSimulator.instantiate.Dispense(Convert.ToDecimal(_cambio));
+                        DeviceSimulator.instantiate.Close();
+
                         Form frmWelcome = AppHelper.GetWelcomeForm();
                         frmWelcome.Show();
                         Close();
@@ -64,7 +99,7 @@ namespace RealKioskApplication.Views
         {
             IAccountService account_service = new AccountService();
             _accountBalance = account_service.GetAccountBlance();
-
+            ValidateAcceptCoinsOrBills();
             _restante = _accountBalance.Debt - _depositado;
             TxtDeuda.Text = $"${_accountBalance.Debt}";
             TxtDepositado.Text = $"${_depositado}";
@@ -72,54 +107,55 @@ namespace RealKioskApplication.Views
             TxtCambio.Text = $"${_cambio}";
         }
 
+
         private void BtnQuinientos_Click(object sender, EventArgs e)
         {
-            AddPayment(500);
+            InsertCoinsOrBills(500, DocumentType.Bill);
         }
-
+       
         private void BtnDocientos_Click(object sender, EventArgs e)
         {
-            AddPayment(200);
+            InsertCoinsOrBills(200, DocumentType.Bill);
         }
 
         private void BtnCien_Click(object sender, EventArgs e)
         {
-            AddPayment(100);
+            InsertCoinsOrBills(100, DocumentType.Bill);
         }
 
         private void BtnCincuenta_Click(object sender, EventArgs e)
         {
-            AddPayment(50);
+            InsertCoinsOrBills(50, DocumentType.Bill);
         }
 
         private void BtnVeinte_Click(object sender, EventArgs e)
         {
-            AddPayment(20);
+            InsertCoinsOrBills(20, DocumentType.Bill);
         }
 
         private void BtnDiez_Click(object sender, EventArgs e)
         {
-            AddPayment(10);
+            InsertCoinsOrBills(10, DocumentType.Coin);
         }
 
         private void BtnCinco_Click(object sender, EventArgs e)
         {
-            AddPayment(5);
+            InsertCoinsOrBills(5, DocumentType.Coin);
         }
 
         private void BtnDos_Click(object sender, EventArgs e)
         {
-            AddPayment(2);
+            InsertCoinsOrBills(2, DocumentType.Coin);
         }
 
         private void BtnUno_Click(object sender, EventArgs e)
         {
-            AddPayment(1);
+            InsertCoinsOrBills(1, DocumentType.Coin);
         }
 
         private void BtnCincoCentavos_Click(object sender, EventArgs e)
         {
-            AddPayment(0.5);
+            InsertCoinsOrBills(Convert.ToDecimal(0.5), DocumentType.Coin);
         }
 
         private async void BtnAbonar_Click(object sender, EventArgs e)
@@ -176,8 +212,10 @@ namespace RealKioskApplication.Views
         {
             if (_depositado == 0)
             {
+
                 Form frmWelcome = AppHelper.GetWelcomeForm();
                 frmWelcome.Show();
+                DeviceSimulator.instantiate.Close();
                 Close();
             }
         }
