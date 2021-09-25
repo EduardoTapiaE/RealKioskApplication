@@ -1,4 +1,5 @@
 ﻿using RealKioskApplication.Helpers;
+using RealKioskApplication.Models;
 using RealKioskApplication.Services;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace RealKioskApplication.Views
 {
     public partial class FrmBalance : Form
     {
+        private AccountBalanceModel _accountBalance;
         public FrmBalance()
         {
             InitializeComponent();
@@ -22,11 +24,11 @@ namespace RealKioskApplication.Views
         private void FrmBalance_Load(object sender, EventArgs e)
         {
             IAccountService account_service = new AccountService();
-            var account_balance = account_service.GetAccountBlance();
+            _accountBalance = account_service.GetAccountBlance();
 
-            TxtCuenta.Text = account_balance.Account_number.ToString();
-            TxtDeuda.Text = $"${account_balance.Debt}";
-            TxtUsuario.Text = account_balance.User;
+            TxtCuenta.Text = _accountBalance.Account_number.ToString();
+            TxtDeuda.Text = $"${_accountBalance.Debt}";
+            TxtUsuario.Text = _accountBalance.User;
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -38,9 +40,16 @@ namespace RealKioskApplication.Views
 
         private void BtnPagar_Click(object sender, EventArgs e)
         {
-            FrmPayment frmPayment = new FrmPayment();
-            frmPayment.Show();
-            Close();
+            if(_accountBalance.Debt > 0)
+            {
+                FrmPayment frmPayment = new FrmPayment();
+                frmPayment.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("No tiene deuda por pagar");
+            }
         }
 
         private void FrmBalance_FormClosed(object sender, FormClosedEventArgs e)
